@@ -12,30 +12,18 @@ import {
 
 const Home = props => (
   <div>
-    <h1>Home</h1>
-    <p>Count: {props.count}</p>
-      <p>Count List: {props.list.length}</p>
+    <h3>Home</h3>
+      <button onClick={props.incrementAsyncAPI}>Get Test Cases Results</button>
+      <p>Number of Test Cases: {props.count}</p>
 
-      Count List: {props.list.map( l => <div key={l.id}>{l.id}</div> )}
 
-      <button onClick={props.incrementAsyncAPI}>API</button>
-      <button onClick={props.increment}>Increment</button>
+      Test Cases:
+
+      {props.list.map( l => <div key={l.id}>{l.id}</div> )}
+    
       <button onClick={props.incrementAsync} disabled={props.isIncrementing}>
         Increment Async
       </button>
-
-    <p>
-      <button onClick={props.decrement}>Decrement</button>
-      <button onClick={props.decrementAsync} disabled={props.isDecrementing}>
-        Decrement Async
-      </button>
-    </p>
-
-    <p>
-      <button onClick={() => props.changePage()}>
-        Go to about page via redux
-      </button>
-    </p>
   </div>
 )
 
