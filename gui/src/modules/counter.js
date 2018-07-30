@@ -79,18 +79,12 @@ export const incrementAsyncAPI = () => {
         dispatch({
             type: INCREMENT_REQUESTED
         });
-        fecth('http://localhost:3000/images').then((response) => {
+        fetch('http://localhost:3000/images').then(response =>
             dispatch({
                 type: PROCESS_LIST_RESPONSE,
                 response
-            })
-        },
-            (error) => {
-                dispatch({
-                    type: PROCESS_LIST_ERROR,
-                    response
-                })
-            })
+            })).reject( error =>
+            alert("ERROR:  " + error))
     }
 }
 
