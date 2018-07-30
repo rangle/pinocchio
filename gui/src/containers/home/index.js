@@ -5,8 +5,9 @@ import { connect } from 'react-redux'
 import {
   increment,
   incrementAsync,
+  incrementAsyncAPI,
   decrement,
-  decrementAsync
+  decrementAsync,
 } from '../../modules/counter'
 
 const Home = props => (
@@ -15,8 +16,9 @@ const Home = props => (
     <p>Count: {props.count}</p>
       <p>Count List: {props.list.length}</p>
 
-      Count List: {props.list.map( l => <div>ssssss</div> )}
+      Count List: {props.list.map( l => <div key={l.id}>{l.id}</div> )}
 
+      <button onClick={props.incrementAsyncAPI}>API</button>
       <button onClick={props.increment}>Increment</button>
       <button onClick={props.incrementAsync} disabled={props.isIncrementing}>
         Increment Async
@@ -49,6 +51,7 @@ const mapDispatchToProps = dispatch =>
     {
       increment,
       incrementAsync,
+        incrementAsyncAPI,
       decrement,
       decrementAsync,
       changePage: () => push('/about-us')

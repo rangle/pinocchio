@@ -4,10 +4,19 @@ const fs = require('fs');
 const images_path = '../sandbox/test_images/';
 let port=3001;
 
+
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
+
 app.get('/', (req, res) => res.send('Hello World!'));
 
 app.get('/images', (req, res) => {
-   readFiles( (items) =>  res.send(items) );
+    res.set('Content-Type', 'application/json');
+    readFiles( (items) =>  res.send(items) );
 });
 
 app.use(express.static(images_path));
@@ -15,11 +24,11 @@ app.use(express.static(images_path));
 
 function readFiles(next){
     fs.readdir(images_path, function(err, items) {
-        console.log(items);
+        let testCases = [];
         for (var i=0; i<items.length; i++) {
-            console.log(items[i]);
+            testCases.push( {id:items[i]} );
         }
-        next(items);
+        next(testCases);
     });
 }
 

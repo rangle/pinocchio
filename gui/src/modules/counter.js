@@ -20,6 +20,14 @@ export default (state = initialState, action) => {
         isIncrementing: true
       }
 
+      case PROCESS_LIST_RESPONSE:
+          return {
+              ...state,
+              count: action.response.length,
+              list: [...action.response],
+              isIncrementing: !state.isIncrementing
+          }
+
       case INCREMENT:
       return {
         ...state,
@@ -79,11 +87,15 @@ export const incrementAsyncAPI = () => {
         dispatch({
             type: INCREMENT_REQUESTED
         });
-        fetch('http://localhost:3000/images').then(response =>
-            dispatch({
-                type: PROCESS_LIST_RESPONSE,
-                response
-            })).reject( error =>
+        fetch('http://localhost:3001/images').then( response => response.json()).
+        then(data =>
+            {
+                return dispatch({
+                    type: PROCESS_LIST_RESPONSE,
+                    response: data
+                })
+            },
+            error =>
             alert("ERROR:  " + error))
     }
 }
