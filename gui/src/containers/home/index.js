@@ -4,6 +4,8 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import {
   increment,
+    selectTestCase,
+    unSelectTestCase,
   incrementAsync,
   incrementAsyncAPI,
   decrement,
@@ -12,15 +14,21 @@ import {
 
 const Home = props => (
   <div>
-    <h3>Home</h3>
-      <button onClick={props.incrementAsyncAPI}>Get Test Cases Results</button>
+      <button onClick={props.incrementAsyncAPI}>Get Test Results</button>
       <p>Number of Test Cases: {props.count}</p>
+      <p>Selected Test Case: {props.selected}</p>
 
 
       Test Cases:
 
-      {props.list.map( l => <div key={l.id}>{l.id}</div> )}
-    
+      {props.list.map( l =>
+          <div key={l.id} onClick={() => props.selectTestCase(l.id)}>
+          <div >{l.id}</div>
+          <img hidden={props.selected !== l.id} src='/pinocchio.jpg' style={{height: '70px'}}/>
+          </div>
+
+      )}
+
       <button onClick={props.incrementAsync} disabled={props.isIncrementing}>
         Increment Async
       </button>
@@ -28,6 +36,7 @@ const Home = props => (
 )
 
 const mapStateToProps = ({ counter }) => ({
+    selected: counter.selected,
     list: counter.list,
   count: counter.count,
   isIncrementing: counter.isIncrementing,
@@ -38,6 +47,8 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       increment,
+        selectTestCase,
+        unSelectTestCase,
       incrementAsync,
         incrementAsyncAPI,
       decrement,

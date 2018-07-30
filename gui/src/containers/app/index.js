@@ -11,9 +11,9 @@ const App = () => (
       <Link to="/home">Home</Link>&nbsp;&nbsp;
       <Link to="/about-us">About</Link>
     </header>
-
+    <br/>
     <main>
-        <Route exact path="/" component={About} />
+        <Route exact path="/" component={Home} />
       <Route exact path="/home" component={Home} />
       <Route exact path="/about-us" component={About} />
     </main>

@@ -1,5 +1,7 @@
 export const INCREMENT_REQUESTED = 'counter/INCREMENT_REQUESTED'
 export const INCREMENT = 'counter/INCREMENT'
+export const SELECT_TEST_CASE = 'counter/SELECT_TEST_CASE'
+export const UNSELECT_TEST_CASE = 'counter/UNSELECT_TEST_CASE'
 export const DECREMENT_REQUESTED = 'counter/DECREMENT_REQUESTED'
 export const DECREMENT = 'counter/DECREMENT'
 export const PROCESS_LIST_RESPONSE = 'counter/PROCESS_LIST_RESPONSE'
@@ -7,6 +9,7 @@ export const PROCESS_LIST_ERROR = 'counter/PROCESS_LIST_ERROR'
 
 const initialState = {
   count: 0,
+    selected: null,
     list:[],
   isIncrementing: false,
   isDecrementing: false
@@ -14,7 +17,22 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case INCREMENT_REQUESTED:
+
+      case SELECT_TEST_CASE:
+          return {
+              ...state,
+              selected: (state.selected != action.id) ? action.id : null
+          }
+
+
+      case UNSELECT_TEST_CASE:
+          return {
+              ...state,
+              selected: null
+          }
+
+
+      case INCREMENT_REQUESTED:
       return {
         ...state,
         isIncrementing: true
@@ -65,6 +83,23 @@ export const increment = () => {
       type: INCREMENT
     })
   }
+}
+
+export const selectTestCase = (id) => {
+    return dispatch => {
+        dispatch({
+            type: SELECT_TEST_CASE,
+            id:id
+        })
+    }
+}
+
+export const unSelectTestCase = () => {
+    return dispatch => {
+        dispatch({
+            type: UNSELECT_TEST_CASE
+        })
+    }
 }
 
 export const incrementAsync = () => {
