@@ -18,8 +18,10 @@ After a software change is introduced, test are run again and differences in ima
 When the QA/Dev person approves all the changes the software change is approved and the generated images are used as baseline.
 Machine learning is going to be used to tackle various different problems.
 
-THe first and most obvious problem is how to scan for acceptable changes fast. So, our first trivial use of machine learning
-will be the finding of the changes in the images using clustering.
+The first and most obvious problem is how to visually scan for acceptable changes or problem fast. 
+To help there, our first trivial use of machine learning will be the finding of the changes in the images using clustering.
+Ultimatelly, oiur end goal is to be able to predict where the change is acceptable or not. 
+Of course, that is a long term goal that will take a lot ofg data and research.
 
 Technology
 
