@@ -27,7 +27,20 @@ const tc =  // TEST CONFIGURATION
       { id:2,
         name: 'select_name_field',
         action: 'click',
-        selector: '#hero-detail-name'}
+        selector: '#hero-detail-name'},
+      { id:3,
+        name: 'type_name',
+        action: 'type',
+        selector: '#hero-detail-name',
+        value: 'Batman'},
+      { id:4,
+        name: 'save_hero_detail',
+        action: 'click',
+        selector: '#hero-detail-save'},
+      { id:5,
+        name: 'got_to_initial_page',
+        action: 'gotohome',
+        selector: '#top-heroes' }
     ]
   };
 
@@ -56,8 +69,13 @@ function imageFileName(test, folder) {
 
   for( const test of tc.tests ){
     await page.waitForSelector(test.selector);
-    if (test.action === "click"){
+    if (test.action === 'click'){
       await page.click(test.selector);
+    } else if (test.action === 'type'){
+      await page.type(test.selector,test.value);
+    }  else if (test.action === 'gotohome'){
+      await page.goto(tc.url);
+      await page.waitForSelector(test.selector);
     }
     await page.screenshot({path:imageFileName(test, tc.folder)});
     await delay(1000);
