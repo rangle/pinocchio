@@ -40,7 +40,13 @@ const tc =  // TEST CONFIGURATION
       { id:5,
         name: 'got_to_initial_page',
         action: 'gotohome',
-        selector: '#top-heroes' }
+        selector: '#top-heroes' },
+      { id:6,
+        name: 'see_list_of_heroes',
+        action: 'click',
+        selector: '#menu_link_heroes' }
+
+        //    await page.click("#menu_link_heroes");
     ]
   };
 
@@ -80,7 +86,7 @@ function imageFileName(test, folder) {
     await page.screenshot({path:imageFileName(test, tc.folder)});
     await delay(1000);
   }
-
+  await delay(10000);
   await browser.close();
 
 })();
