@@ -17,12 +17,26 @@ const tc =  // TEST CONFIGURATION
     folder: 'test',
     url:'http://localhost:4200',
     page_width: 1920,
-    page_height: 1080
+    page_height: 1080,
+
+    tests:[
+      { id:1,
+        name: 'select_hero_narco',
+        action: 'click',
+        selector: '#Narco'},
+      { id:2,
+        name: 'select_name_field',
+        action: 'click',
+        selector: '#hero-detail-name'}
+    ]
   };
 
-
+function imageFileName(test, folder) {
+  return folder + "/" + test.id + "-" + test.name + ".png";
+}
 
 (async () => {
+
   try {
     await promisify(fs.readdir)(tc.folder);
   } catch(e){
@@ -38,17 +52,17 @@ const tc =  // TEST CONFIGURATION
   const page = await browser.newPage();
   await page.setViewport({ width: tc.page_width, height:tc.page_height });
   await page.goto(tc.url);
+  await page.screenshot({path: tc.folder + '/0-landing_page.png'});
 
-  await page.screenshot({path: tc.folder + '/1.see_dahsboard.png'});
-
-  await page.waitForSelector("#top-heroes");
-  await page.click("#Narco");
-
-  await page.screenshot({path: tc.folder + '/2.see_heroe_detail.png'});
-
-  await delay(1000);
-
-
+  for( const test of tc.tests ){
+    await page.waitForSelector(test.selector);
+    if (test.action === "click"){
+      await page.click(test.selector);
+    }
+    await page.screenshot({path:imageFileName(test, tc.folder)});
+    await delay(1000);
+  }
 
   await browser.close();
+
 })();
