@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import {
   increment,
     selectTestCase,
+    runTestCases,
     unSelectTestCase,
   incrementAsync,
   incrementAsyncAPI,
@@ -14,6 +15,7 @@ import {
 
 const Home = props => (
   <div>
+      <button onClick={props.runTestCases}>Run Test Cases</button>
       <button onClick={props.incrementAsyncAPI}>Get Test Results</button>
       <p>Number of Test Cases: {props.count}</p>
       <p>Selected Test Case: {props.selected}</p>
@@ -53,6 +55,7 @@ const mapDispatchToProps = dispatch =>
     {
       increment,
         selectTestCase,
+        runTestCases,
         unSelectTestCase,
       incrementAsync,
         incrementAsyncAPI,

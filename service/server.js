@@ -19,6 +19,12 @@ app.get('/images', (req, res) => {
     readFiles( (items) =>  res.send(items) );
 });
 
+app.get('/runtestcases', (req, res) => {
+    //here is where we will asyncronously run the test
+    res.set('Content-Type', 'application/json');
+    readFiles( (items) =>  res.send(items) );
+});
+
 app.use(express.static(images_path));
 
 

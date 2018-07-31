@@ -7,16 +7,42 @@ export const DECREMENT = 'testcases/DECREMENT'
 export const PROCESS_LIST_RESPONSE = 'testcases/PROCESS_LIST_RESPONSE'
 export const PROCESS_LIST_ERROR = 'testcases/PROCESS_LIST_ERROR'
 
+export const RUN_TEST_CASES = 'testcases/RUN_TEST_CASES'
+export const RUN_TEST_CASES_SUCCESS= 'testcases/RUN_TEST_CASES_SUCCESS'
+export const RUN_TEST_CASES_ERROR = 'testcases/RUN_TEST_CASES_ERROR'
+
 const initialState = {
   count: 0,
     selected: null,
     list:[],
   isIncrementing: false,
-  isDecrementing: false
+  isDecrementing: false,
+  testCasesRunning: false
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
+
+      case RUN_TEST_CASES:
+          return {
+              ...state,
+              testCasesRunning: true
+          }
+
+      case RUN_TEST_CASES_SUCCESS:
+          return {
+              ...state,
+              count: action.response.length,
+              list: [...action.response],
+              isIncrementing: !state.isIncrementing,
+              testCasesRunning: false
+          }
+
+      case RUN_TEST_CASES_ERROR:
+          return {
+              ...state,
+              testCasesRunning: false
+          }
 
       case SELECT_TEST_CASE:
           return {
@@ -91,6 +117,24 @@ export const selectTestCase = (id) => {
             type: SELECT_TEST_CASE,
             id:id
         })
+    }
+}
+
+export const runTestCases = () => {
+    return dispatch => {
+        dispatch({
+            type: RUN_TEST_CASES
+        })
+        fetch('http://localhost:3001/runtestcases').then( response => response.json()).
+        then(data =>
+            {
+                return dispatch({
+                    type: RUN_TEST_CASES_SUCCESS,
+                    response: data
+                })
+            },
+            error =>
+                alert("ERROR:  " + error))
     }
 }
 
