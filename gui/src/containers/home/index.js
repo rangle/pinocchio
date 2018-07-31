@@ -24,7 +24,12 @@ const Home = props => (
       {props.list.map( l =>
           <div key={l.id} onClick={() => props.selectTestCase(l.id)}>
           <div >{l.id}</div>
-          <img hidden={props.selected !== l.id} src='/pinocchio.jpg' style={{height: '70px'}}/>
+              <div hidden={props.selected !== l.id}>
+                  <h4>Current:</h4>
+              <img  src={'http://localhost:3001/' + l.id} style={{width: '100%'}}/>
+                  <h4>Baseline:</h4>
+              <img  src={'http://localhost:3001/' + l.id} style={{width: '100%'}}/>
+              </div>
           </div>
 
       )}
