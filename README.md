@@ -5,7 +5,7 @@ Bussines Case
 
 This project tries to mix latest modern tools for web application test automation and machine learning techniques.
 This is project DOES NOT intend to replace the work of a QA or developer manually testing a web application. 
-The intent is to leverage this work but helping that person automate the more routine tasks and speed uop the
+The intent is to leverage this work but helping that person automate the more routine tasks and speed up the
 early detection of problems.
 The general idea is to allow the QA/Dev person to very easily create test that describe uses cases.
 Basically, those use cases are described by specifying a sequence of clicks and inputs (mouse and keyboard).
