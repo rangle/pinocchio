@@ -12,7 +12,7 @@ app.use(function(req, res, next) {
 });
 
 
-app.get('/', (req, res) => res.send('Hello World!'));
+app.get('/', (req, res) => res.send('Hi, I am Pinocchio!'));
 
 app.get('/images', (req, res) => {
     res.set('Content-Type', 'application/json');

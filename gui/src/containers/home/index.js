@@ -10,7 +10,7 @@ import {
   incrementAsyncAPI,
   decrement,
   decrementAsync,
-} from '../../modules/counter'
+} from '../../modules/testcases'
 
 const Home = props => (
   <div>
@@ -40,12 +40,12 @@ const Home = props => (
   </div>
 )
 
-const mapStateToProps = ({ counter }) => ({
-    selected: counter.selected,
-    list: counter.list,
-  count: counter.count,
-  isIncrementing: counter.isIncrementing,
-  isDecrementing: counter.isDecrementing
+const mapStateToProps = ({ testcases }) => ({
+    selected: testcases.selected,
+    list: testcases.list,
+  count: testcases.count,
+  isIncrementing: testcases.isIncrementing,
+  isDecrementing: testcases.isDecrementing
 })
 
 const mapDispatchToProps = dispatch =>

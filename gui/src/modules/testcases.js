@@ -1,11 +1,11 @@
-export const INCREMENT_REQUESTED = 'counter/INCREMENT_REQUESTED'
-export const INCREMENT = 'counter/INCREMENT'
-export const SELECT_TEST_CASE = 'counter/SELECT_TEST_CASE'
-export const UNSELECT_TEST_CASE = 'counter/UNSELECT_TEST_CASE'
-export const DECREMENT_REQUESTED = 'counter/DECREMENT_REQUESTED'
-export const DECREMENT = 'counter/DECREMENT'
-export const PROCESS_LIST_RESPONSE = 'counter/PROCESS_LIST_RESPONSE'
-export const PROCESS_LIST_ERROR = 'counter/PROCESS_LIST_ERROR'
+export const INCREMENT_REQUESTED = 'testcases/INCREMENT_REQUESTED'
+export const INCREMENT = 'testcases/INCREMENT'
+export const SELECT_TEST_CASE = 'testcases/SELECT_TEST_CASE'
+export const UNSELECT_TEST_CASE = 'testcases/UNSELECT_TEST_CASE'
+export const DECREMENT_REQUESTED = 'testcases/DECREMENT_REQUESTED'
+export const DECREMENT = 'testcases/DECREMENT'
+export const PROCESS_LIST_RESPONSE = 'testcases/PROCESS_LIST_RESPONSE'
+export const PROCESS_LIST_ERROR = 'testcases/PROCESS_LIST_ERROR'
 
 const initialState = {
   count: 0,
