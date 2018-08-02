@@ -20,7 +20,9 @@ const Home = props => (
 
       Test Cases:
 
+      <table><tbody>
       {props.list.map( l =>
+          <tr key={l.id} ><td>
           <div key={l.id} onClick={() => props.selectTestCase(l.id)}>
           <div >{l.id}</div>
               <div hidden={props.selected !== l.id}>
@@ -30,8 +32,9 @@ const Home = props => (
               <img  src={'http://localhost:3001/' + l.id} style={{width: '100%'}}/>
               </div>
           </div>
-
+          </td></tr>
       )}
+      </tbody></table>
   </div>
 )
 
