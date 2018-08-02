@@ -3,18 +3,16 @@ import { push } from 'connected-react-router'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import {
-  increment,
     selectTestCase,
     runTestCases,
+    getTestCases,
     unSelectTestCase,
-  incrementAsync,
-  incrementAsyncAPI,
-  decrement,
-  decrementAsync,
+    incrementAsyncAPI
 } from '../../modules/testcases'
 
 const Home = props => (
   <div>
+      <button onClick={props.getTestCases}>Get Test Cases</button>
       <button onClick={props.runTestCases}>Run Test Cases</button>
       <button onClick={props.incrementAsyncAPI}>Get Test Results</button>
       <p>Number of Test Cases: {props.count}</p>
@@ -53,14 +51,11 @@ const mapStateToProps = ({ testcases }) => ({
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      increment,
         selectTestCase,
         runTestCases,
+        getTestCases,
         unSelectTestCase,
-      incrementAsync,
         incrementAsyncAPI,
-      decrement,
-      decrementAsync,
       changePage: () => push('/about-us')
     },
     dispatch

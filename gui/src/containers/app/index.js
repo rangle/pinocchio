@@ -6,10 +6,7 @@ import About from '../about'
 const App = () => (
   <div>
     <header>
-        <img src='/pinocchio.jpg' style={{height: '70px'}}/>
-        Pinocchio &nbsp;&nbsp;&nbsp;&nbsp;
-      <Link to="/home">Home</Link>&nbsp;&nbsp;
-      <Link to="/about-us">About</Link>
+        <img src='/pinocchio.jpg' style={{height: '70px'}}/> Pinocchio
     </header>
     <br/>
     <main>

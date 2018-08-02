@@ -1,9 +1,7 @@
 export const INCREMENT_REQUESTED = 'testcases/INCREMENT_REQUESTED'
-export const INCREMENT = 'testcases/INCREMENT'
 export const SELECT_TEST_CASE = 'testcases/SELECT_TEST_CASE'
 export const UNSELECT_TEST_CASE = 'testcases/UNSELECT_TEST_CASE'
-export const DECREMENT_REQUESTED = 'testcases/DECREMENT_REQUESTED'
-export const DECREMENT = 'testcases/DECREMENT'
+
 export const PROCESS_LIST_RESPONSE = 'testcases/PROCESS_LIST_RESPONSE'
 export const PROCESS_LIST_ERROR = 'testcases/PROCESS_LIST_ERROR'
 
@@ -11,13 +9,15 @@ export const RUN_TEST_CASES = 'testcases/RUN_TEST_CASES'
 export const RUN_TEST_CASES_SUCCESS= 'testcases/RUN_TEST_CASES_SUCCESS'
 export const RUN_TEST_CASES_ERROR = 'testcases/RUN_TEST_CASES_ERROR'
 
+export const GET_TEST_CASES = 'testcases/GET_TEST_CASES'
+export const GET_TEST_CASES_SUCCESS= 'testcases/GET_TEST_CASES_SUCCESS'
+export const GET_TEST_CASES_ERROR = 'testcases/GET_TEST_CASES_ERROR'
+
 const initialState = {
-  count: 0,
+    count: 0,
     selected: null,
     list:[],
-  isIncrementing: false,
-  isDecrementing: false,
-  testCasesRunning: false
+    testCasesRunning: false
 }
 
 export default (state = initialState, action) => {
@@ -27,6 +27,11 @@ export default (state = initialState, action) => {
           return {
               ...state,
               testCasesRunning: true
+          }
+
+      case GET_TEST_CASES:
+          return {
+              ...state
           }
 
       case RUN_TEST_CASES_SUCCESS:
@@ -57,12 +62,13 @@ export default (state = initialState, action) => {
               selected: null
           }
 
-
-      case INCREMENT_REQUESTED:
-      return {
-        ...state,
-        isIncrementing: true
-      }
+      case GET_TEST_CASES_SUCCESS:
+          return {
+              ...state,
+              count: action.response.length,
+              list: [...action.response],
+              isIncrementing: !state.isIncrementing
+          }
 
       case PROCESS_LIST_RESPONSE:
           return {
@@ -72,42 +78,9 @@ export default (state = initialState, action) => {
               isIncrementing: !state.isIncrementing
           }
 
-      case INCREMENT:
-      return {
-        ...state,
-        count: state.count + 1,
-          list: [...state.list, {id:state.count}],
-        isIncrementing: !state.isIncrementing
-      }
-
-    case DECREMENT_REQUESTED:
-      return {
-        ...state,
-        isDecrementing: true
-      }
-
-    case DECREMENT:
-      return {
-        ...state,
-        count: state.count - 1,
-          list: state.list.filter( (x) => x.id != state.count),
-        isDecrementing: !state.isDecrementing
-      }
 
     default:
       return state
-  }
-}
-
-export const increment = () => {
-  return dispatch => {
-    dispatch({
-      type: INCREMENT_REQUESTED
-    })
-
-    dispatch({
-      type: INCREMENT
-    })
   }
 }
 
@@ -119,6 +92,26 @@ export const selectTestCase = (id) => {
         })
     }
 }
+
+
+export const getTestCases = () => {
+    return dispatch => {
+        dispatch({
+            type: GET_TEST_CASES
+        })
+        fetch('http://localhost:3001/gettestcases').then( response => response.json()).
+        then(data =>
+            {
+                return dispatch({
+                    type: GET_TEST_CASES_SUCCESS,
+                    response: data
+                })
+            },
+            error =>
+                alert("ERROR:  " + error))
+    }
+}
+
 
 export const runTestCases = () => {
     return dispatch => {
@@ -146,21 +139,6 @@ export const unSelectTestCase = () => {
     }
 }
 
-export const incrementAsync = () => {
-    return dispatch => {
-        dispatch({
-            type: INCREMENT_REQUESTED
-        });
-
-        return setTimeout(() => {
-            dispatch({
-                type: INCREMENT
-            })
-        }, 3000)
-    }
-}
-
-
 export const incrementAsyncAPI = () => {
     return dispatch => {
         dispatch({
@@ -177,30 +155,4 @@ export const incrementAsyncAPI = () => {
             error =>
             alert("ERROR:  " + error))
     }
-}
-
-export const decrement = () => {
-  return dispatch => {
-    dispatch({
-      type: DECREMENT_REQUESTED
-    })
-
-    dispatch({
-      type: DECREMENT
-    })
-  }
-}
-
-export const decrementAsync = () => {
-  return dispatch => {
-    dispatch({
-      type: DECREMENT_REQUESTED
-    })
-
-    return setTimeout(() => {
-      dispatch({
-        type: DECREMENT
-      })
-    }, 3000)
-  }
 }
