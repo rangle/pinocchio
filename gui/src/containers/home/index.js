@@ -18,7 +18,6 @@ const Home = props => (
       <p>Number of Test Cases: {props.count}</p>
       <p>Selected Test Case: {props.selected}</p>
 
-
       Test Cases:
 
       {props.list.map( l =>
@@ -33,10 +32,6 @@ const Home = props => (
           </div>
 
       )}
-
-      <button onClick={props.incrementAsync} disabled={props.isIncrementing}>
-        Increment Async
-      </button>
   </div>
 )
 

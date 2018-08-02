@@ -66,7 +66,7 @@ export default (state = initialState, action) => {
           return {
               ...state,
               count: action.response.length,
-              list: [...action.response],
+              list: [...action.response.tests],
               isIncrementing: !state.isIncrementing
           }
 

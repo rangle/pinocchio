@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const fs = require('fs');
-const images_path = '../sandbox/test_images/';
+const images_path = './test';
 const { promisify } = require("util");
 const puppeteer = require('puppeteer');
 let port=3001;
@@ -30,7 +30,7 @@ app.get('/runtestcases', (req, res) => {
 
 app.get('/gettestcases', (req, res) => {
     res.set('Content-Type', 'application/json');
-    readFiles( (items) =>  res.send(items) );
+    res.send(tc);
 });
 
 app.use(express.static(images_path));
