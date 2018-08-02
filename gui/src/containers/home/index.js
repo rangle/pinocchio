@@ -23,13 +23,13 @@ const Home = props => (
       <table><tbody>
       {props.list.map( l =>
           <tr key={l.id} ><td>
-          <div key={l.id} onClick={() => props.selectTestCase(l.id)}>
+          <div onClick={() => props.selectTestCase(l.id)}>
           <div >{l.id}</div>
               <div hidden={props.selected !== l.id}>
                   <h4>Current:</h4>
-              <img  src={'http://localhost:3001/' + l.id} style={{width: '100%'}}/>
+              <img  src={'http://localhost:3001/' + l.id + ".png"} style={{width: '100%'}}/>
                   <h4>Baseline:</h4>
-              <img  src={'http://localhost:3001/' + l.id} style={{width: '100%'}}/>
+              <img  src={'http://localhost:3001/baseline/' + l.id + ".png"} style={{width: '100%'}}/>
               </div>
           </div>
           </td></tr>
