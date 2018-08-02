@@ -65,7 +65,7 @@ export default (state = initialState, action) => {
       case GET_TEST_CASES_SUCCESS:
           return {
               ...state,
-              count: action.response.length,
+              count: action.response.tests.length,
               list: [...action.response.tests],
               isIncrementing: !state.isIncrementing
           }
