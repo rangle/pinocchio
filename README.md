@@ -1,9 +1,6 @@
 # pinocchio
-Pinocchio = Puppetter + AI. To make manual QA more effective and fun.
 
-Bussines Case
-
-This project tries to mix latest modern tools for web application test automation and machine learning techniques.
+This project tries to mix latest modern tools for web application test automation and machine learning techniques, a very hot technological trend among test automation vendors. We try to do this keepiong the tools open source and simple. This folder, stil in its infancy is going to be the repository of code, code samples and kep documents.
 This is project DOES NOT intend to replace the work of a QA or developer manually testing a web application. 
 The intent is to leverage this work but helping that person automate the more routine tasks and speed up the
 early detection of problems.
@@ -23,12 +20,14 @@ To help there, our first trivial use of machine learning will be the finding of 
 Ultimatelly, oiur end goal is to be able to predict where the change is acceptable or not. 
 Of course, that is a long term goal that will take a lot ofg data and research.
 
-Technology
+Technology that is is oging to be used:
 
-This project depends on Node.js an d Python (Anaconda installation recommended).
+Node.js
 The primary tools for running test is Puppetter.
+   The name Pinocchio comes from  Pinocchio = Puppetter + AI.
 The sample application is done with Angular.
 The UI is done using Redux/React.
+AIm ML, and computer vision libraries tools including TensoFlow, Keras, OpenCV, etc. 
 
 Installation / Run
 
