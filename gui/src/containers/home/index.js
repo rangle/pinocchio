@@ -56,7 +56,7 @@ const Home = props => (
                   Warnings : <input type='text' value={l.warnings} />
 
                   <h4>Current Screen:</h4>
-              <img  src={'http://localhost:3001/' + l.id + ".png"} style={{width: '100%'}}/>
+              <img  src={'http://localhost:3001/current/' + l.id + ".png"} style={{width: '100%'}}/>
                   <h4>Baseline Screen:</h4>
               <img  src={'http://localhost:3001/baseline/' + l.id + ".png"} style={{width: '100%'}}/>
               </div>

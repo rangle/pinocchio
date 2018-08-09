@@ -1,5 +1,7 @@
 # pinocchio
 
+THIS PROJECT IS STILL JUST A DRAFT PROOF OF CONCEPT
+
 This project tries to mix latest modern tools for web application test automation and machine learning techniques, a very hot technological trend among test automation vendors. We try to do this keepiong the tools open source and simple. This folder, stil in its infancy is going to be the repository of code, code samples and kep documents.
 This is project DOES NOT intend to replace the work of a QA or developer manually testing a web application. 
 The intent is to leverage this work but helping that person automate the more routine tasks and speed up the
@@ -29,8 +31,24 @@ The sample application is done with Angular.
 The UI is done using Redux/React.
 AIm ML, and computer vision libraries tools including TensoFlow, Keras, OpenCV, etc. 
 
-Installation / Run
+How to Installation / Run  (npm install /  npm start)
 
-npm install / npm start.
-(more explanations will be added shortly)
+The project has 3 folders, the service, the gui and the sampleapp.
+all of them need npm install and npm run
+
+which contains puppeteer may take a while to install if chromium needs to ne downloads.
+
+1) the 'service' folder contains a simple API that allow us to run tests and get test results.
+You need this running to see something working.
+This project needs puppeteer and may take a while to install if chromium needs to download.
+the service will run on port 3001
+
+2) the 'gui' folder contains a React/Redux simple app to call the service to show test and test results.
+it also will be used to add new tests and update existing tests.
+
+3) lastly, the sampleapp folder has an angular sample app based on angular tutorial
+very simple npm install npm start will run on port 4200 as expected
+
+
+
 

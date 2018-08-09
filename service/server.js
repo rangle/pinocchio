@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const fs = require('fs');
-const images_path = './test';
+const images_path = './test/';
 const { promisify } = require("util");
 const puppeteer = require('puppeteer');
 let port=3001;
@@ -63,7 +63,7 @@ let browser;
 
 const tc =  // TEST CONFIGURATION
     {
-        folder: 'test',
+        folder: 'test/current',
         url:'http://localhost:4200',
         page_width: 1920,
         page_height: 1080,
@@ -126,7 +126,7 @@ const tc =  // TEST CONFIGURATION
     };
 
 function imageFileName(test, folder) {
-    return folder + "/" + test.id + "-" + test.name + ".png";
+    return folder + "/" + test.id  + ".png";
 }
 
 async function runTestCases() {
