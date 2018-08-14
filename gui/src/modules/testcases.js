@@ -17,7 +17,8 @@ const initialState = {
     count: 0,
     selected: null,
     list:[],
-    testCasesRunning: false
+    testCasesRunning: false,
+    changeDateTime: new Date()
 }
 
 export default (state = initialState, action) => {

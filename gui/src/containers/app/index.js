@@ -6,8 +6,13 @@ import About from '../about'
 const App = () => (
   <div>
     <header>
-        <img src='/pinocchio.jpg' style={{height: '70px'}}/> Pinocchio
-    </header>
+        <img src='/pinocchio.jpg' style={{height: '70px'}}/>
+The Pinocchio Project: Towards using machine learning to boost the manual QA process.
+    <br/>Early Proof of Concept
+
+
+
+</header>
     <br/>
     <main>
         <Route exact path="/" component={Home} />

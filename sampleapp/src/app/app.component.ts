@@ -4,6 +4,11 @@ import { Component } from '@angular/core';
   selector: 'my-root',
   template: `
     <h1>{{title}}</h1>
+    <pre>Note: This sample app has been with Angular 6 but it could have been done with anything.
+    Even with non-web technologies as we will not use the DOM to run or evaluate tests.
+    Pinocchio will test and evaluate expectations using computer vision and AI understanding
+      the screen as real human users would do.   
+    </pre> 
     <div class="header-bar"></div>
     <nav>
       <a id="menu_link_dashboard" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
@@ -14,5 +19,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Tour of Heroes';
+  title = 'Sample Web Application to Test Pinocchio';
 }
