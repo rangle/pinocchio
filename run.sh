@@ -1,0 +1,9 @@
+cd sampleapp
+npm start&
+cd ..
+cd service
+npm start&
+cd ..
+cd gui
+npm start&
+cd ..

@@ -11,6 +11,11 @@ then, when back to http://localhost:3000
 click on Get Tests
 click on the ID of one of the test to see details (images..etc)
 
+if you also want to play/try ML/CV experiments that we keep in the "sandbox", please install OpenCV and Keras in anaconda
+install anaconda from  https://www.anaconda.com/download/#macos
+conda install -c conda-forge keras (this is going to install Tensor Flow)
+conda install -c conda-forge opencv
+
 
 THIS PROJECT IS STILL JUST A DRAFT PROOF OF CONCEPT
 

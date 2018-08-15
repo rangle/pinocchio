@@ -1,0 +1,9 @@
+cd service
+npm install
+cd ..
+cd gui
+npm install
+cd ..
+cd sampleapp
+npm install
+cd ..
