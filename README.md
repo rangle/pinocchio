@@ -1,5 +1,17 @@
 # pinocchio
 
+SHORT STORY
+
+./install.sh
+./run.sh
+http://localhost:3000   (pinocchio GUI)
+click on Run Tests
+wait enjoy
+then, when back to http://localhost:3000
+click on Get Tests
+click on the ID of one of the test to see details (images..etc)
+
+
 THIS PROJECT IS STILL JUST A DRAFT PROOF OF CONCEPT
 
 This project tries to mix latest modern tools for web application test automation and machine learning techniques, a very hot technological trend among test automation vendors. We try to do this keepiong the tools open source and simple. This folder, stil in its infancy is going to be the repository of code, code samples and kep documents.
