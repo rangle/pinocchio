@@ -33,7 +33,7 @@ AIm ML, and computer vision libraries tools including TensoFlow, Keras, OpenCV, 
 
 How to Installation / Run  (npm install /  npm start)
 
-The project has 3 folders, the service, the gui and the sampleapp.
+The project has 4 folders, the service, the gui, the sampleapp and the machine learning folder.
 all of them need npm install and npm run
 
 which contains puppeteer may take a while to install if chromium needs to ne downloads.
@@ -46,8 +46,12 @@ the service will run on port 3001
 2) the 'gui' folder contains a React/Redux simple app to call the service to show test and test results.
 it also will be used to add new tests and update existing tests.
 
-3) lastly, the sampleapp folder has an angular sample app based on angular tutorial
+3) The sampleapp folder has an angular sample app based on angular tutorial
 very simple npm install npm start will run on port 4200 as expected
+
+4) the "cvml" (Computer Vision and Machine Learning) contains experimental code in jupyter notebooks ,
+and real code normally in python. To run this you need a python environment.
+The recomendation is Anaconda. Install openCV for that.
 
 
 
