@@ -1,5 +1,11 @@
 # pinocchio
 
+What is this?
+
+The idea that started from this initial video: https://www.youtube.com/watch?v=frAP_bU2IrM that  I did for a U of T course.
+That movited this blog post draft: https://docs.google.com/document/d/106uSkPMdWcuZtrgjlZtaB81K8Cxa3UAv8Y9xyzxfAlk/edit#heading=h.j557m4v27688
+
+
 SHORT STORY
 
 ./install.sh
